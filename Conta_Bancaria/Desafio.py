@@ -3,7 +3,7 @@ Criar um sistema bancário com as operações: sacar, depositar e visualizar ext
 '''
 
 menu = ''' 
-SEJA BEM VINDO
+
 O QUE DESEJA?
 [d] Depositar
 [s] Sacar
@@ -20,16 +20,16 @@ extrato = []
 while True:
     selecionado = input(menu)
     if selecionado == 'd': #deposito
-        deposito = float(input('Digite o valor desejado para o despósito: '))
+        deposito = float(input('Digite o valor desejado para o despósito: R$ '))
         saldo += deposito
-        extrato.append(f'Depósito: R${deposito}')
+        extrato.append(f'Depósito: R$ {deposito}')
         if deposito > 0:
             print('Depósito realizado com sucesso!')
         else: 
             print('Não foi possível realizar o depósito!') 
     if selecionado == 's': #saque
-        saque = float(input('Digite o valor que deseja sacar: '))
-        extrato.append(f'Sacou: R${saque}')
+        saque = float(input('Digite o valor que deseja sacar: R$ '))
+        extrato.append(f'Sacou: R$ {saque}')
         if saque <= saldo: 
             print('Saque realizado com sucesso!')
             saldo = deposito - saque
