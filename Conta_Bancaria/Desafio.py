@@ -28,10 +28,10 @@ while True:
         else: 
             print('Não foi possível realizar o depósito!') 
     if selecionado == 's': #saque
-        saque = float(input('Digite o valor que deseja sacar: R$ '))
-        extrato.append(f'Sacou: R$ {saque}')
+        saque = float(input('Digite o valor que deseja sacar: R$ ')) 
         if saque <= saldo: 
             print('Saque realizado com sucesso!')
+            extrato.append(f'Sacou: R$ {saque}')
             saldo = deposito - saque
         else: 
             print('Saldo insuficiente!')
