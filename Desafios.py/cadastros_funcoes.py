@@ -5,21 +5,22 @@ Organize o código em funções.
 '''
 alunos = {}
 def menu():
-    menu_principal = """
+    print( """
     ==================
     Menu Principal:
     1. Cadastrar Aluno
     2. Consultar Aluno
-    3. Excluir Aluno
-    4. Sair
+    3. Atualizar Aluno
+    4. Excluir Aluno
+    5. Sair
     ==================
     
-    """
-    print(menu_principal)
+    """)
 
 def escolher_opcao():
     while True:
-        opcao = int(input("Digite sua opção"))
+        menu()
+        opcao = int(input("Digite sua opção:\n"))
         match(opcao):
             case 1:
                 cadastrar_aluno()
@@ -27,15 +28,16 @@ def escolher_opcao():
                 buscar_matricula = input("Digite a matrícula do aluno que deseja consultar: ")
                 consultar_aluno(buscar_matricula)
             case 3:
-                excluir_aluno()
+                atualizar_aluno()
             case 4:
+                excluir_aluno()
+            case 5:
                 break
             case _:
                 print("Opção inválida!")
         
-
+# Cadastrar aluno: Permitir a inserção de dados do aluno, incluindo nome, matrícula, curso e data de nascimento.
 def cadastrar_aluno():
-    # Cadastrar aluno: Permitir a inserção de dados do aluno, incluindo nome, matrícula, curso e data de nascimento.
         aluno = input("Digite o nome do aluno: ")
         matricula = input("Digite a matrícula do aluno: ")
         curso = input("Digite o curso do aluno: ")
@@ -43,11 +45,8 @@ def cadastrar_aluno():
         print(f"Aluno {aluno} cadastrado com sucesso!")
         alunos[matricula] = {"nome": aluno, "curso": curso, "data_nascimento": data_nascimento}
         return alunos
-
-def consultar_aluno(matricula):
-    # Buscar um aluno por matrícula e exibir seus dados completos.
-    # FIXME Mensagem repetida de digite a matrícula
-        buscar_matricula = input("Digite a matrícula do aluno que deseja consultar: ")
+# Buscar um aluno por matrícula e exibir seus dados completos.
+def consultar_aluno(buscar_matricula):
         if buscar_matricula in alunos:
             aluno_encontrado = alunos[buscar_matricula]
             print(f"Aluno encontrado: {aluno_encontrado['nome']}")
@@ -56,18 +55,21 @@ def consultar_aluno(matricula):
         else :
             print("Aluno não encontrado!")
             return False
+# Atualizar dados do aluno:
+'''def atualizar_aluno():'''#FAZER
+    
+
 
 def excluir_aluno():
     matricula = input("Qual a matrícula do aluno a ser excluído: ")
     achou = consultar_aluno(matricula)
     if achou:    
         del alunos[matricula]
-        print("Aluno excluído com sucesso!")    
+        print("Aluno excluído com sucesso!")
+    else: 
+        print("Matrícula não encontrada.")    
 
 
-menu()
 escolher_opcao()
-# FIXME mostrar menu para escolher opções
 
-# FIXME criar a função para mostrar os alunos mais organizados
 print(alunos.items())
