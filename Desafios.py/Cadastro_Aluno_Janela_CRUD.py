@@ -10,7 +10,7 @@ class CadastroAlunosApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Cadastro de Alunos")
-        self.root.geometry("400x500")  # Ajustei a altura para acomodar mais campos
+        self.root.geometry("600x600")  # Ajustei a altura para acomodar mais campos
 
         self.alunos = []  # Lista para armazenar os dados dos alunos
 
